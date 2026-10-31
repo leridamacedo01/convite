@@ -3,52 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Convite 17 Anos - Lérida</title>
+    <title>17 Anos - Lérida</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Adicionando fontes elegantes e uma fonte cursiva para os detalhes -->
+    <link href="https://googleapis.com/css2?family=Cinzel:wght@500;700&family=Alex+Brush&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
+    <!-- Fundo animado com partículas/estrelas -->
+    <div class="estrelas-background"></div>
+
     <!-- SEÇÃO 1: CAPA -->
     <section id="capa" class="page active">
-        <div class="moldura-dourada"></div>
-        <div class="conteudo">
-            <h2 class="subtitulo-capa">Comemoração 17 anos</h2>
-            <h1 class="nome-principal">Lérida</h1>
+        <div class="borda-desenhada"></div>
+        <div class="conteudo animar-entrada">
+            <span class="detalhe-topo">confirme a sua presença ♡</span>
+            <h2 class="subtitulo-capa">Comemoração</h2>
+            
+            <div class="bloco-nome">
+                <h1 class="idade">17 <span class="anos">Anos</span></h1>
+                <p class="da-lerida">da Lérida ♡</p>
+            </div>
+
             <p class="mensagem-intimista">
-                Preparei um momento muito especial para celebrar com quem realmente faz parte da minha vida e tem um lugar guardado no meu coração. Você é uma dessas pessoas.
+                Será um dia especial, do jeitinho que eu amo, com as pessoas que fazem parte da minha história.
             </p>
-            <button class="btn-dourado" onclick="proximaPagina()">Ver Detalhes</button>
+            
+            <button class="btn-principal" onclick="irParaDetalhes()">Ver Detalhes</button>
         </div>
     </section>
 
-    <!-- SEÇÃO 2: DETALHES -->
+    <!-- SEÇÃO 2: DETALHES (CHAPTER SEVENTEEN) -->
     <section id="detalhes" class="page">
-        <div class="moldura-dourada"></div>
+        <div class="borda-desenhada"></div>
         <div class="conteudo">
             <h1 class="titulo-chapter">Chapter Seventeen</h1>
             
-            <div class="info-container">
-                <div class="info-item">
-                    <span class="label">Local</span>
-                    <span class="valor">Espaço Dubai Clube</span>
+            <div class="grid-info">
+                <div class="card-info">
+                    <div class="icone">📅</div>
+                    <span class="info-titulo">DATA</span>
+                    <span class="info-texto">09.01.2027<br><small>SÁBADO</small></span>
                 </div>
-                <div class="info-item">
-                    <span class="label">Data</span>
-                    <span class="valor">09 / 01 / 2027</span>
+                
+                <div class="card-info">
+                    <div class="icone">🕒</div>
+                    <span class="info-titulo">HORÁRIO</span>
+                    <span class="info-texto">A PARTIR<br>DAS 19:00H</span>
                 </div>
-                <div class="info-item">
-                    <span class="label">Horário</span>
-                    <span class="valor">19:00 h</span>
+                
+                <div class="card-info">
+                    <div class="icone">📍</div>
+                    <span class="info-titulo">LOCAL</span>
+                    <span class="info-texto">ESPAÇO DUBAI CLUB</span>
                 </div>
             </div>
 
-            <!-- SUBSTITUA O '#' PELO LINK REAL DA SUA LISTA DE PRESENTES -->
-            <a href="https://leridamacedo01.github.io/lista/" target="_blank" class="btn-dourado link-presente">Ideias de Presentes</a>
-            
-            <button class="btn-voltar" onclick="voltarPagina()">← Voltar</button>
+            <p class="frase-efeito">Vai ser um dia incrível para celebrarmos juntos! ♡</p>
+
+            <a href="https://leridamacedo01.github.io/lista/" target="_blank" class="btn-principal btn-presente">🎁 Lista de Presentes</a>
+     
+          <button class="btn-voltar" onclick="voltarPagina()">← Voltar</button>
         </div>
     </section>
 

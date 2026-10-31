@@ -1,4 +1,4 @@
-/* Configurações Gerais */
+/* Configurações de Reset */
 * {
     margin: 0;
     padding: 0;
@@ -9,12 +9,33 @@ body, html {
     width: 100%;
     height: 100%;
     font-family: 'Montserrat', sans-serif;
-    background-color: #5c0612; /* Vermelho escuro/bordô elegante */
+    background-color: #4a030b; /* Vermelho escuro idêntico à imagem */
     color: #ffffff;
     overflow: hidden;
+    position: relative;
 }
 
-/* Estrutura de Páginas Flutuantes */
+/* Partículas piscando ao fundo */
+.estrelas-background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle, #ffffff 1px, transparent 1px),
+        radial-gradient(circle, #d4af37 1.5px, transparent 1.5px);
+    background-size: 80px 80px, 120px 120px;
+    background-position: 0 0, 40px 40px;
+    opacity: 0.25;
+    animation: piscarEstrelas 4s infinite linear;
+    z-index: 1;
+}
+
+@keyframes piscarEstrelas {
+    0%, 100% { opacity: 0.15; }
+    50% { opacity: 0.35; }
+}
+
+/* Estrutura das Páginas */
 .page {
     position: absolute;
     width: 100%;
@@ -22,163 +43,213 @@ body, html {
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    padding: 20px;
+    padding: 30px;
+    z-index: 2;
     opacity: 0;
+    transform: translateY(30px) scale(0.98);
     pointer-events: none;
-    transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
-    transform: scale(0.95);
+    transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1), transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .page.active {
     opacity: 1;
+    transform: translateY(0) scale(1);
     pointer-events: auto;
-    transform: scale(1);
 }
 
-/* Detalhes Visuais: Tons de Vermelho, Branco e Dourado */
-#capa {
-    background: radial-gradient(circle, #800c1e 0%, #4a020b 100%);
-}
-
-#detalhes {
-    background: radial-gradient(circle, #6e0817 0%, #380006 100%);
-}
-
-/* Moldura Fina Dourada */
-.moldura-dourada {
+/* Borda Fina Orgânica */
+.borda-desenhada {
     position: absolute;
-    top: 20px;
-    bottom: 20px;
-    left: 20px;
-    right: 20px;
-    border: 2px solid #d4af37;
-    box-shadow: inset 0 0 15px rgba(212, 175, 55, 0.2), 0 0 15px rgba(212, 175, 55, 0.2);
+    top: 25px;
+    bottom: 25px;
+    left: 25px;
+    right: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
     pointer-events: none;
 }
 
-/* Conteúdo */
 .conteudo {
-    max-width: 500px;
-    z-index: 2;
-    padding: 0 10px;
+    max-width: 450px;
+    width: 100%;
+    text-align: center;
 }
 
-/* Tipografia */
-.nome-principal {
-    font-family: 'Cinzel', serif;
-    font-size: 3.5rem;
-    font-weight: 700;
-    color: #ffffff;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-    margin-bottom: 20px;
-    letter-spacing: 2px;
+/* Animação Inicial de Entrada dos Elementos */
+.animar-entrada {
+    animation: subidaSuave 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes subidaSuave {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estilização da Capa (Igual à imagem) */
+.detalhe-topo {
+    font-family: 'Alex Brush', cursive;
+    color: #e5c158;
+    font-size: 1.8rem;
+    display: block;
+    margin-bottom: 30px;
+    transform: rotate(-5deg);
 }
 
 .subtitulo-capa {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.1rem;
+    font-size: 1rem;
     text-transform: uppercase;
-    letter-spacing: 4px;
-    color: #d4af37; /* Dourado */
+    letter-spacing: 6px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.8);
     margin-bottom: 10px;
-    font-weight: 400;
 }
 
-.titulo-chapter {
+.bloco-nome {
+    margin-bottom: 25px;
+}
+
+.idade {
     font-family: 'Cinzel', serif;
-    font-size: 2.2rem;
+    font-size: 5rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.idade .anos {
+    font-family: 'Alex Brush', cursive;
+    font-size: 3rem;
+    font-weight: 400;
+    text-transform: lowercase;
+    margin-left: -10px;
+}
+
+.da-lerida {
+    font-family: 'Alex Brush', cursive;
+    font-size: 3.5rem;
     color: #ffffff;
-    letter-spacing: 3px;
-    margin-bottom: 40px;
-    border-bottom: 1px solid #d4af37;
-    padding-bottom: 15px;
+    margin-top: -10px;
 }
 
 .mensagem-intimista {
     font-size: 0.95rem;
-    line-height: 1.6;
-    color: #f0f0f0;
-    margin-bottom: 40px;
+    line-height: 1.7;
     font-weight: 300;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 35px;
 }
 
-/* Blocos de Informação */
-.info-container {
-    margin-bottom: 40px;
-}
-
-.info-item {
-    margin-bottom: 25px;
-}
-
-.info-item .label {
-    display: block;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #d4af37;
-    margin-bottom: 5px;
-}
-
-.info-item .valor {
+/* Segunda Página: Chapter Seventeen */
+.titulo-chapter {
     font-family: 'Cinzel', serif;
-    font-size: 1.4rem;
-    font-weight: 600;
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+    margin-bottom: 35px;
     color: #ffffff;
 }
 
-/* Botões e Links */
-.btn-dourado {
-    display: inline-block;
-    background: transparent;
-    color: #d4af37;
-    border: 1px solid #d4af37;
-    padding: 12px 35px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    cursor: pointer;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 0 5px rgba(212, 175, 55, 0.1);
+.grid-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 35px;
 }
 
-.btn-dourado:hover {
-    background: #d4af37;
-    color: #380006;
-    box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+.card-info {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s;
+}
+
+.card-info:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.07);
+}
+
+.icone {
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+}
+
+.info-titulo {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    color: #e5c158;
+    margin-bottom: 5px;
     font-weight: 600;
 }
 
-.link-presente {
+.info-texto {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+.frase-efeito {
+    font-family: 'Alex Brush', cursive;
+    font-size: 1.8rem;
+    color: #e5c158;
+    margin-bottom: 30px;
+}
+
+/* Botões Modernos e Animados */
+.btn-principal {
+    display: inline-block;
+    background: transparent;
+    color: #e5c158;
+    border: 1px solid #e5c158;
+    padding: 14px 40px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.btn-principal:hover {
+    background: #e5c158;
+    color: #4a030b;
+    box-shadow: 0 0 20px rgba(229, 193, 88, 0.5);
+    transform: scale(1.03);
+}
+
+.btn-presente {
     width: 100%;
-    margin-bottom: 20px;
 }
 
 .btn-voltar {
     background: none;
     border: none;
-    color: #ffffff;
-    font-family: 'Montserrat', sans-serif;
+    color: rgba(255, 255, 255, 0.5);
     font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 1px;
     cursor: pointer;
-    opacity: 0.6;
-    transition: opacity 0.2s;
-    display: block;
-    margin: 20px auto 0 auto;
+    margin-top: 25px;
+    transition: color 0.2s;
 }
 
 .btn-voltar:hover {
-    opacity: 1;
+    color: #ffffff;
 }
 
-/* Responsividade Básica para Celulares Pequenos */
-@media (max-width: 380px) {
-    .nome-principal { font-size: 2.8rem; }
+/* Ajuste Responsivo para Celular */
+@media (max-width: 400px) {
+    .idade { font-size: 4rem; }
+    .da-lerida { font-size: 3rem; }
     .titulo-chapter { font-size: 1.8rem; }
-    .info-item .valor { font-size: 1.2rem; }
 }
