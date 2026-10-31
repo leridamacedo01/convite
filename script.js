@@ -1,18 +1,14 @@
-// Ativa as transições dinâmicas de slide e fade
-function irParaDetalhes() {
+// Função para navegar para a página de detalhes
+function proximaPagina() {
     const capa = document.getElementById('capa');
     const detalhes = document.getElementById('detalhes');
     
-    // Remove a classe ativa da capa e adiciona aos detalhes
     capa.classList.remove('active');
     detalhes.classList.add('active');
-    
-    // Adiciona uma animação interna nos blocos de informação quando a página surge
-    const conteudoDetalhes = detalhes.querySelector('.conteudo');
-    conteudoDetalhes.classList.add('animar-entrada');
 }
 
-function voltarParaCapa() {
+// Função para voltar para a capa
+function voltarPagina() {
     const capa = document.getElementById('capa');
     const detalhes = document.getElementById('detalhes');
     
