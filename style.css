@@ -1,0 +1,184 @@
+/* Configurações Gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #5c0612; /* Vermelho escuro/bordô elegante */
+    color: #ffffff;
+    overflow: hidden;
+}
+
+/* Estrutura de Páginas Flutuantes */
+.page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+    transform: scale(0.95);
+}
+
+.page.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
+}
+
+/* Detalhes Visuais: Tons de Vermelho, Branco e Dourado */
+#capa {
+    background: radial-gradient(circle, #800c1e 0%, #4a020b 100%);
+}
+
+#detalhes {
+    background: radial-gradient(circle, #6e0817 0%, #380006 100%);
+}
+
+/* Moldura Fina Dourada */
+.moldura-dourada {
+    position: absolute;
+    top: 20px;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    border: 2px solid #d4af37;
+    box-shadow: inset 0 0 15px rgba(212, 175, 55, 0.2), 0 0 15px rgba(212, 175, 55, 0.2);
+    pointer-events: none;
+}
+
+/* Conteúdo */
+.conteudo {
+    max-width: 500px;
+    z-index: 2;
+    padding: 0 10px;
+}
+
+/* Tipografia */
+.nome-principal {
+    font-family: 'Cinzel', serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.subtitulo-capa {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #d4af37; /* Dourado */
+    margin-bottom: 10px;
+    font-weight: 400;
+}
+
+.titulo-chapter {
+    font-family: 'Cinzel', serif;
+    font-size: 2.2rem;
+    color: #ffffff;
+    letter-spacing: 3px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid #d4af37;
+    padding-bottom: 15px;
+}
+
+.mensagem-intimista {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #f0f0f0;
+    margin-bottom: 40px;
+    font-weight: 300;
+}
+
+/* Blocos de Informação */
+.info-container {
+    margin-bottom: 40px;
+}
+
+.info-item {
+    margin-bottom: 25px;
+}
+
+.info-item .label {
+    display: block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #d4af37;
+    margin-bottom: 5px;
+}
+
+.info-item .valor {
+    font-family: 'Cinzel', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+/* Botões e Links */
+.btn-dourado {
+    display: inline-block;
+    background: transparent;
+    color: #d4af37;
+    border: 1px solid #d4af37;
+    padding: 12px 35px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 5px rgba(212, 175, 55, 0.1);
+}
+
+.btn-dourado:hover {
+    background: #d4af37;
+    color: #380006;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+    font-weight: 600;
+}
+
+.link-presente {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.btn-voltar {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+    display: block;
+    margin: 20px auto 0 auto;
+}
+
+.btn-voltar:hover {
+    opacity: 1;
+}
+
+/* Responsividade Básica para Celulares Pequenos */
+@media (max-width: 380px) {
+    .nome-principal { font-size: 2.8rem; }
+    .titulo-chapter { font-size: 1.8rem; }
+    .info-item .valor { font-size: 1.2rem; }
+}
